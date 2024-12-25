@@ -2,19 +2,6 @@ import streamlit as st
 import numpy as np
 import matplotlib.pyplot as plt
 
-# Ensure numpy and matplotlib are correctly imported and up to date
-try:
-    np_version = np.__version__
-    st.write(f"numpy version: {np_version}")
-except AttributeError as e:
-    st.error(f"Error with numpy: {e}")
-
-try:
-    plt_version = plt.__version__
-    st.write(f"matplotlib version: {plt_version}")
-except AttributeError as e:
-    st.error(f"Error with matplotlib: {e}")
-
 # Attempt to read a custom CSS file for extra styling (optional)
 try:
     with open("styles.css") as f:
