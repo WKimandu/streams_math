@@ -13,9 +13,8 @@ except FileNotFoundError:
 st.title("Grade 8 Math Interactive App — cbcelimuportal.org")
 
 st.markdown("""
-**With the incisive clarity of an alien intelligence and the elegance and wisdom of a master teacher,** 
-let's explore Radians, Degree, Functions, Parametric Equations, Polar Coordinates, and Sequences 
-in an *interactive* way.
+With the incisive clarity,elegance and wisdom of a master teacher, 
+let's explore Radians, Degree, Functions, Parametric Equations, Polar Coordinates, and Sequences in an interactive way.
 """)
 
 topic = st.sidebar.radio(
@@ -30,20 +29,20 @@ if topic == "Radians":
     st.subheader("Radians")
 
     st.markdown("""
-    A radian measures the angle based on the arc length on a **unit circle**.
-    - **1 radian** = length of arc = 1 (on a unit circle).
-    - **π radians** = 180°, so 1 rad ≈ 57.2958°.
+    A radian measures the angle based on the arc length on a unit circle.
+    - 1 radian = length of arc = 1 (on a unit circle).
+    - π radians = 180°, so 1 rad ≈ 57.2958°.
     """)
 
-    st.markdown("**Interactive Conversion**: Move the slider to convert degrees to radians.")
+    st.markdown("Interactive Conversion: Move the slider to convert degrees to radians.")
     deg_slider = st.slider("Degrees", min_value=0, max_value=360, value=90, step=5)
-    radians_value = deg_slider * np.pi / 180
-    st.write(f"**{deg_slider}°** is about **{radians_value:.3f} radians**.")
+    radians_value = deg_slider  np.pi / 180
+    st.write(f"{deg_slider}° is about {radians_value:.3f} radians.")
 
     st.markdown("Now try converting radians back to degrees.")
-    rad_slider = st.slider("Radians", min_value=0.0, max_value=2*np.pi, value=np.pi/2, step=0.1)
-    degrees_value = rad_slider * 180 / np.pi
-    st.write(f"**{rad_slider:.2f} radians** is about **{degrees_value:.2f}°**.")
+    rad_slider = st.slider("Radians", min_value=0.0, max_value=2np.pi, value=np.pi/2, step=0.1)
+    degrees_value = rad_slider  180 / np.pi
+    st.write(f"{rad_slider:.2f} radians is about {degrees_value:.2f}°.")
 
 # -------------------------------------------------------------------
 # 2. DEGREE
@@ -56,13 +55,13 @@ elif topic == "Degree":
     Common angles: 90° (right angle), 180° (straight angle), 360° (full turn).
     """)
 
-    st.markdown("**Activity**: Let's break down a circle into degrees.")
+    st.markdown("Activity: Let's break down a circle into degrees.")
     circle_degrees = st.slider("Divide the circle?", 1, 360, 6, step=1)
-    st.write(f"A full circle is split into slices of **{360/circle_degrees:.2f}°** each.")
+    st.write(f"A full circle is split into slices of {360/circle_degrees:.2f}° each.")
     
     # (Optional) Visual representation: a pie chart
     fig, ax = plt.subplots()
-    ax.pie([1]*circle_degrees, startangle=90, labels=None)
+    ax.pie([1]circle_degrees, startangle=90, labels=None)
     ax.set_title(f"{circle_degrees} slices in a circle (each is {360/circle_degrees:.1f}°).")
     st.pyplot(fig)
 
@@ -73,9 +72,9 @@ elif topic == "Function":
     st.subheader("Linear Function")
 
     st.markdown("""
-    A linear function follows the form **y = m*x + b**, where:
-    - **m** = slope
-    - **b** = y-intercept
+    A linear function follows the form y = mx + b, where:
+    - m = slope
+    - b = y-intercept
     Move the sliders below to change the slope and intercept.
     """)
 
@@ -83,7 +82,7 @@ elif topic == "Function":
     intercept = st.slider("Intercept (b)", min_value=-10.0, max_value=10.0, value=3.0, step=1.0)
 
     x_vals = np.linspace(-10, 10, 200)
-    y_vals = slope * x_vals + intercept
+    y_vals = slope  x_vals + intercept
 
     fig, ax = plt.subplots()
     ax.plot(x_vals, y_vals, label=f"y = {slope}x + {intercept}", color="blue")
@@ -102,16 +101,16 @@ elif topic == "Parametric":
     st.subheader("Parametric Equations")
 
     st.markdown("""
-    We define both **x(t)** and **y(t)** in terms of a third variable, **t**.
+    We define both x(t) and y(t) in terms of a third variable, t.
     Here, let's explore a circle or an ellipse by adjusting its parameters.
     """)
 
     radius_a = st.slider("Radius A (along x direction)", 0.5, 5.0, 1.0, step=0.5)
     radius_b = st.slider("Radius B (along y direction)", 0.5, 5.0, 1.0, step=0.5)
 
-    t = np.linspace(0, 2*np.pi, 200)
-    x = radius_a * np.cos(t)
-    y = radius_b * np.sin(t)
+    t = np.linspace(0, 2np.pi, 200)
+    x = radius_a  np.cos(t)
+    y = radius_b  np.sin(t)
 
     fig, ax = plt.subplots()
     ax.plot(x, y, color="green", label=f"x(t)={radius_a}cos(t), y(t)={radius_b}sin(t)")
@@ -129,19 +128,19 @@ elif topic == "Polar":
     st.subheader("Polar Coordinates")
 
     st.markdown("""
-    In polar coordinates, a point is represented as **(r, θ)**, where:
+    In polar coordinates, a point is represented as (r, θ), where:
     - r is the distance from the origin
     - θ is the angle from the positive x-axis
-    **Let's visualize a spiral**: r = a * θ. Move the slider to change a.
+    Let's visualize a spiral: r = a  θ. Move the slider to change a.
     """)
 
     a_value = st.slider("Spiral constant (a)", 0.1, 2.0, 1.0, step=0.1)
 
-    theta = np.linspace(0, 4*np.pi, 300)
-    r = a_value * theta  # Spiral equation
+    theta = np.linspace(0, 4np.pi, 300)
+    r = a_value  theta  # Spiral equation
     fig = plt.figure()
     ax = fig.add_subplot(111, polar=True)
-    ax.plot(theta, r, color="red", label=f"r = {a_value} * θ")
+    ax.plot(theta, r, color="red", label=f"r = {a_value}  θ")
     ax.set_title("Polar Spiral")
     ax.legend()
     st.pyplot(fig)
@@ -167,7 +166,7 @@ elif topic == "Sequence":
     length = st.slider("How many terms?", min_value=5, max_value=20, value=10)
 
     n_values = np.arange(1, length+1)
-    seq = [first_term + (n-1)*common_diff for n in n_values]
+    seq = [first_term + (n-1)common_diff for n in n_values]
 
     fig, ax = plt.subplots()
     markerline, stemlines, baseline = ax.stem(n_values, seq)
