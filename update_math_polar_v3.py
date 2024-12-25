@@ -40,7 +40,8 @@ if topic == "Radians":
     st.write(f"{deg_slider}° is about {radians_value:.3f} radians.")
 
     st.markdown("Now try converting radians back to degrees.")
-    rad_slider = st.slider("Radians", min_value=0.0, max_value=2np.pi, value=np.pi/2, step=0.1)
+    #rad_slider = st.slider("Radians", min_value=0.0, max_value=2np.pi, value=np.pi/2, step=0.1)
+    rad_slider = st.slider("Radians", min_value=0.0, max_value=2*np.pi, value=np.pi/2, step=0.1) 
     degrees_value = rad_slider  180 / np.pi
     st.write(f"{rad_slider:.2f} radians is about {degrees_value:.2f}°.")
 
