@@ -1,2 +1,3 @@
-matplotlib==3.5.1
-numPy 
+streamlit
+numpy>=1.23
+matplotlib>=3.5
